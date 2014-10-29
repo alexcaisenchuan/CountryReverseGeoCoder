@@ -46,19 +46,21 @@
 //Cover the string into point list, string format: lat lon, lat lon, lat lon...
 - (NSArray *)coverStringIntoPointArray:(NSString *)str
 {
-    NSMutableArray *ret = [NSMutableArray arrayWithCapacity:10];
+    NSMutableArray *ret = [NSMutableArray arrayWithCapacity:1];
     
-    if (str) {
-        //divide the string into array, sep with comma(,)
-        NSArray *list = [str componentsSeparatedByString:@","];
-        for (NSString *ele in list) {
-            NSArray *ll = [ele componentsSeparatedByString:@" "];
-            if (ll.count >= 2) {
-                GeoPoint *p = [[GeoPoint alloc]init];
-                p.longitude = [[ll objectAtIndex:0] doubleValue];
-                p.latitude = [[ll objectAtIndex:1] doubleValue];
-                
-                [ret addObject:p];
+    @autoreleasepool {
+        if (str) {
+            //divide the string into array, sep with comma(,)
+            NSArray *list = [str componentsSeparatedByString:@","];
+            for (NSString *ele in list) {
+                NSArray *ll = [ele componentsSeparatedByString:@" "];
+                if (ll.count >= 2) {
+                    GeoPoint *p = [[GeoPoint alloc]init];
+                    p.longitude = [[ll objectAtIndex:0] doubleValue];
+                    p.latitude = [[ll objectAtIndex:1] doubleValue];
+                    
+                    [ret addObject:p];
+                }
             }
         }
     }
