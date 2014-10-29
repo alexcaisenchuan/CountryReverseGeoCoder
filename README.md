@@ -12,7 +12,7 @@ The lib is easy to use, example:
 
 ##Known Issues
 
-The init of CountryReverseGeoCoder cost lots of time, and the instance of CountryReverseGeoCoder cost lots of memory. Because the boundary data of countries is really large. I'll try to optimize it.
+The init of CountryReverseGeoCoder need about 11 sec, and the instance of CountryReverseGeoCoder cost 10M memory. Because the boundary data of countries is really large. I'll try to optimize it.
 
 ##Dataset
 
